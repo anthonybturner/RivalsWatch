@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lunar Data</title>
+</head>
+<body>
+    <h1>Lunar Data</h1>
+    
+    {% if lunar_data %}
+        <h2>Moon Phase Information</h2>
+        <ul>
+            <li>Phase: {{ lunar_data.phase }}</li>
+            <li>Date: {{ lunar_data.date }}</li>
+            <!-- Add other fields based on the actual LunarAPI response -->
+        </ul>
+    {% else %}
+        <p>Failed to fetch lunar data.</p>
+    {% endif %}
+</body>
+</html>

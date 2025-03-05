@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Marvel Rivals - Tutorials{% endblock %}
+
+{% block content %}
+    <h2>Tutorials</h2>
+    <div class="tutorial-list">
+        {% for tutorial in tutorials %}
+            <div class="tutorial-item">
+                <h3>{{ tutorial.title }}</h3>
+                <p>{{ tutorial.description|truncatewords:30 }}</p>
+                <a href="{% url 'tutorial_detail' tutorial.id %}">Read More</a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}Marvel Rivals - Home{% endblock %}
+
+{% block content %}
+    <section class="intro">
+        <h2>Welcome to Marvel Rivals</h2>
+        <p>Your go-to place for the latest news, tutorials, strategies, and tips on Marvel Rivals!</p>
+    </section>
+
+    <section class="latest-news">
+        <h3>Latest News</h3>
+        <div class="news">
+            {% for article in news %}
+                <article>
+                    <h4>{{ article.title }}</h4>
+                    <p>{{ article.summary }}</p>
+                    <a href="{% url 'news_detail' article.id %}">Read more</a>
+                </article>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="latest-tutorials">
+        <h3>Latest Tutorials</h3>
+        <div class="tutorials">
+            {% for tutorial in tutorials %}
+                <article>
+                    <h4>{{ tutorial.title }}</h4>
+                    <p>{{ tutorial.summary }}</p>
+                    <a href="{% url 'tutorial_detail' tutorial.id %}">Read more</a>
+                </article>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="latest-strategies">
+        <h3>Latest Strategies</h3>
+        <div class="strategies">
+            {% for strategy in strategies %}
+                <article>
+                    <h4>{{ strategy.title }}</h4>
+                    <p>{{ strategy.summary }}</p>
+                    <a href="{% url 'strategy_detail' strategy.id %}">Read more</a>
+                </article>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}

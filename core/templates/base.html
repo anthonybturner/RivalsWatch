@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Marvel Rivals{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Marvel Rivals</h1>
+        <nav class="navbar">
+            <a href="/">Home</a>
+            <a href="/news/">News</a>
+            <a href="/tutorials/">Tutorials</a>
+            <a href="/strategies/">Strategies</a>
+            <a href="/api/">API Info</a>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Marvel Rivals. All rights reserved.</p>
+    </footer>
+</body>
+</html>

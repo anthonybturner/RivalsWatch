@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}News - Marvel Rivals{% endblock %}
+
+{% block content %}
+    <h2>Latest News</h2>
+    <div class="news">
+        {% for article in news %}
+            <article>
+                <h3>{{ article.title }}</h3>
+                <p>{{ article.summary }}</p>
+            </article>
+        {% endfor %}
+    </div>
+{% endblock %}

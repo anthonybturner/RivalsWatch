@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Strategies - Marvel Rivals{% endblock %}
+{% block content %}
+    <h2>Strategies & Fundamentals</h2>
+    <ul>
+        {% for strategy in strategies %}
+            <li>
+                <h2>{{ strategy.title }}</h2>
+                <p>{{ strategy.content }}</p>
+                <p><em>Created on: {{ strategy.created_at }}</em></p>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+{% endblock %}
+
+
+
