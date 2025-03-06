@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import News, Tutorial, Strategy
+from .models import News, Tutorial, Strategy, Hero
 from .services.lunarapi import get_lunar_data
 
 def home(request):
@@ -15,6 +15,14 @@ def home(request):
         'strategies': strategies,
     }
     return render(request, 'index.html', context)
+
+def hero(request):
+    # Fetch hero data
+    heroes = Hero.objects.all().order_by('-name')
+    context = {
+        'heroes': heroes
+    }
+    return render(request, 'hero.html', context)
 
 # View for displaying the list of tutorials (text and YouTube)
 def tutorials(request):

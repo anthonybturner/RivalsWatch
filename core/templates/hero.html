@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <section class="heroes-list">
+        <div class="hero-grid">  <!-- Added grid container -->
+            {% for hero in heroes %}
+                <div class="hero-card">
+                    <img class="hero" src="https://www.marvelrivalsapi.com{{ hero.image_url }}" alt="{{ hero.name }}">
+                    <div class="hero-info">
+                        <h2>{{ hero.name }}</h2>
+                        <p><strong>Real Name:</strong> {{ hero.real_name }}</p>
+                        <p><strong>Role:</strong> {{ hero.role }}</p>
+                        <p><strong>Attack Type:</strong> {{ hero.attack_type }}</p>
+                        <p><strong>Difficulty:</strong> {{ hero.difficulty }}</p>
+                        <p><strong>Bio:</strong> {{ hero.bio }}</p>
+                        <p><strong>Lore:</strong> {{ hero.lore }}</p>
+                        <p><strong>Teams:</strong> 
+                            {% for team in hero.team %}
+                                {{ team }}{% if not forloop.last %}, {% endif %}
+                            {% endfor %}
+                        </p>
+                    </div>
+                </div>
+            {% empty %}
+                <p>No heroes available.</p>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}

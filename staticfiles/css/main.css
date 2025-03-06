@@ -7,6 +7,8 @@ body {
 }
 
 header {
+    transform: translateZ(0);
+
     background-color: #1a1a1a;
     color: white;
     padding: 20px;
@@ -31,7 +33,7 @@ header h1 {
 }
 
 .navbar a:hover {
-    background-color: #575757;
+    background-color: #000000;
 }
 
 /* Content Section */
@@ -44,6 +46,10 @@ h2 {
 }
 img {
     width: 100%;
+    height: auto;
+}
+.hero img{
+    width: 50%;
     height: auto;
 }
 .news, .tutorials, .strategies {
