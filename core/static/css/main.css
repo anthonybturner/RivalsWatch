@@ -39,7 +39,7 @@ p {
 
 /* Intro Section */
 .intro {
-    background-color: #2c3e50;
+    background-color: #222;
     color: white;
     padding: 50px;
     text-align: center;
@@ -54,7 +54,13 @@ section {
     padding: 50px 20px;
     margin: 20px 0;
 }
-
+section.dev-diaries, section.latest-news, section.latest-strategies, section.latest-tutorials {
+    border-radius: 5px;
+    background: #2c3e50;
+}
+section.dev-diaries h3,section.latest-news h3, section.latest-strategies h3, section.latest-tutorials h3 {
+    color: #fff;
+}
 /* Card Container */
 .card-container {
     display: block;
