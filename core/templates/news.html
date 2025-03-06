@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/news.css' %}">
 
 {% block title %}News - Marvel Rivals{% endblock %}
 
@@ -8,7 +10,7 @@
         {% for article in news %}
             <article>
                 <h3>{{ article.title }}</h3>
-                <p>{{ article.summary }}</p>
+                <p>{{ article.content|safe }}</p>
             </article>
         {% endfor %}
     </div>

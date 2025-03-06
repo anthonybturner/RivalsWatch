@@ -14,8 +14,8 @@
             {% for article in news %}
                 <article>
                     <h4>{{ article.title }}</h4>
-                    <p>{{ article.summary }}</p>
-                    <a href="{% url 'news_detail' article.id %}">Read more</a>
+                    <p>{{ article.content|safe }}</p>
+                   
                 </article>
             {% endfor %}
         </div>

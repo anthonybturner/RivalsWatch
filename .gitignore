@@ -1,0 +1,18 @@
+.env
+__pycache__/
+*.py[cod]
+.env
+.venv/
+venv/
+env/
+pip-log.txt
+.tox/
+.coverage
+.hypothesis/
+.pytest_cache/
+.idea/
+.vscode/
+*.log
+Thumbs.db  # Windows Explorer specific
+*.env
+.docker/
