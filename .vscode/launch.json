@@ -26,6 +26,18 @@
         "justMyCode": true
       },
       {
+        "name": "Django: manage.py fetch_match_history",
+        "type": "python",
+        "request": "launch",
+        "program": "${workspaceFolder}/manage.py",
+        "args": ["fetch_match_history"],
+        "django": true,
+        "env": {
+          "DJANGO_SETTINGS_MODULE": "marvel_rivals.settings"
+        },
+        "justMyCode": true
+      },
+      {
         "name": "Python Debugger: Django",
         "type": "debugpy",
         "request": "launch",
