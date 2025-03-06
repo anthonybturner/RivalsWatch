@@ -3,46 +3,68 @@
 {% block title %}Marvel Rivals - Home{% endblock %}
 
 {% block content %}
+    <!-- Welcome Section -->
     <section class="intro">
-        <h2>Welcome to Marvel Rivals</h2>
-        <p>Your go-to place for the latest news, tutorials, strategies, and tips on Marvel Rivals!</p>
+        <div class="intro-content">
+            <h2>Welcome to Marvel Rivals</h2>
+            <p>Your go-to place for the latest news, tutorials, strategies, and tips on Marvel Rivals!</p>
+        </div>
     </section>
 
+    <!-- Dev Diaries Section -->
+    <section class="dev-diaries">
+        <h3>Dev Diaries</h3>
+        <div class="card-container">
+            {% for article in dev_diaries %}
+                <div class="card">
+                    <div class="card-content">
+                        <h3>{{ article.title }}</h3>
+                        <h4>{{ article.overview }}</h4>
+                        <p>{{ article.date }}</p>
+                        <p>{{ article.full_content|safe }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- Latest News Section -->
     <section class="latest-news">
         <h3>Latest News</h3>
-        <div class="news">
+        <div class="card-container news">
             {% for article in news %}
-                <article>
-                    <h4>{{ article.title }}</h4>
+                <div class="card">
+                    <h3>{{ article.title }}</h3>
                     <p>{{ article.content|safe }}</p>
-                   
-                </article>
+                </div>
             {% endfor %}
         </div>
     </section>
 
+    <!-- Latest Tutorials Section -->
     <section class="latest-tutorials">
         <h3>Latest Tutorials</h3>
-        <div class="tutorials">
+        <div class="card-container tutorials">
             {% for tutorial in tutorials %}
-                <article>
-                    <h4>{{ tutorial.title }}</h4>
+                <div class="card">
+                    <h3>{{ tutorial.title }}</h3>
                     <p>{{ tutorial.summary }}</p>
-                    <a href="{% url 'tutorial_detail' tutorial.id %}">Read more</a>
-                </article>
+                    <a href="{% url 'tutorial_detail' tutorial.id %}" class="read-more-btn">Read more</a>
+                </div>
             {% endfor %}
         </div>
     </section>
 
+    <!-- Latest Strategies Section -->
     <section class="latest-strategies">
         <h3>Latest Strategies</h3>
-        <div class="strategies">
+        <div class="card-container strategies">
             {% for strategy in strategies %}
-                <article>
-                    <h4>{{ strategy.title }}</h4>
+                <div class="card">
+                    <h3>{{ strategy.title }}</h3>
                     <p>{{ strategy.summary }}</p>
-                    <a href="{% url 'strategy_detail' strategy.id %}">Read more</a>
-                </article>
+                    <a href="{% url 'strategy_detail' strategy.id %}" class="read-more-btn">Read more</a>
+                </div>
             {% endfor %}
         </div>
     </section>

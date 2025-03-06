@@ -1,16 +1,18 @@
 from django.shortcuts import render
-from .models import News, Tutorial, Strategy, Hero
+from .models import News, Tutorial, Strategy, Hero, DeveloperDiary
 from .services.lunarapi import get_lunar_data
 
 def home(request):
     # Fetch latest news, tutorials, strategies
     news = News.objects.all().order_by('-published_at')[:3]  # Most recent 3 news articles
-    tutorials = Tutorial.objects.all()[:3]  # Latest 3 tutorials
-    strategies = Strategy.objects.all()[:3]  # Latest 3 strategies
+    dev_diaries = DeveloperDiary.objects.all().order_by('-date') [:5] # Most recent 3 news articles
+    tutorials = Tutorial.objects.all()[:5]  # Latest 3 tutorials
+    strategies = Strategy.objects.all()[:5]  # Latest 3 strategies
    # lunar_data = get_lunar_data('moonphase')  # Example API data
 
     context = {
         'news': news,
+        'dev_diaries': dev_diaries,
         'tutorials': tutorials,
         'strategies': strategies,
     }
@@ -18,7 +20,7 @@ def home(request):
 
 def hero(request):
     # Fetch hero data
-    heroes = Hero.objects.all().order_by('-name')
+    heroes = Hero.objects.all().order_by('name')
     context = {
         'heroes': heroes
     }

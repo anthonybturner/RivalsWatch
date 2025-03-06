@@ -1,23 +1,134 @@
 /* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5;
     margin: 0;
     padding: 0;
 }
 
 header {
-    transform: translateZ(0);
-    background-color: #1a1a1a;
+    background-color: #222;
     color: white;
     padding: 20px;
     text-align: center;
+    font-size: 24px;
 }
 
-header h1 {
-    margin: 0;
+h2 {
+    color: #ffffff;
+    font-size: 2rem;
+    font-weight: bold;
 }
 
+h3 {
+    color: #222;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.intro-content p{
+    color: #ffffff;
+}
+
+p {
+    font-size: 1rem;
+    color: #000000;
+    line-height: 1.6;
+}
+
+/* Intro Section */
+.intro {
+    background-color: #2c3e50;
+    color: white;
+    padding: 50px;
+    text-align: center;
+}
+
+.intro h2 {
+    margin-bottom: 20px;
+}
+
+/* Section Layout */
+section {
+    padding: 50px 20px;
+    margin: 20px 0;
+}
+
+/* Card Container */
+.card-container {
+    display: block;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    margin-top: 20px;
+}
+
+/* Card Styling */
+.card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card-img-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.card-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Card Content */
+.card-content {
+    padding: 20px;
+}
+
+.card-content h4 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.card-content .overview {
+    font-style: italic;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.card-content .date {
+    font-size: 0.9rem;
+    color: #999;
+    margin-bottom: 20px;
+}
+
+.read-more-btn {
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.read-more-btn:hover {
+    background-color: #2980b9;
+}
+
+/* Navbar */
 .navbar {
     display: flex;
     justify-content: center;
@@ -35,17 +146,9 @@ header h1 {
     background-color: #000000;
 }
 
-/* Content Section */
-section {
-    padding: 20px;
-}
-
-h2 {
-    color: #333;
-}
-
+/* Image Styles */
 img {
-    width: 100%;
+    width: 15%;
     height: auto;
 }
 
@@ -53,6 +156,7 @@ img {
     width: 10%;
     height: auto;
 }
+
 /* Hero Grid Styles */
 .hero-grid {
     display: grid;
@@ -62,7 +166,7 @@ img {
     padding: 20px;
 }
 
-/* Hero Card Styles (repeated from earlier) */
+/* Hero Card Styles */
 .hero-card {
     background-color: #fff;
     border-radius: 15px;
@@ -72,8 +176,8 @@ img {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
-    width: 100%; /* Take up 100% of the grid column */
-    max-width: 300px; /* Limit max width for a better layout */
+    width: 100%;
+    max-width: 300px;
     margin: 0;
     padding: 20px;
     background: linear-gradient(145deg, #ffffff, #e4e4e4);
@@ -87,7 +191,7 @@ img {
 
 /* Hero Image */
 .hero-card img.hero {
-    width: 100%;
+    width: 75%;
     height: auto;
     border-radius: 10px;
     margin-bottom: 15px;
@@ -129,37 +233,32 @@ img {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
-    .hero-grid {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust for smaller screens */
+@media (max-width: 1024px) {
+    .news, .tutorials, .strategies {
+        grid-template-columns: repeat(2, 1fr);  /* Two columns on medium screens */
     }
 
     .hero-card {
-        max-width: 200px; /* Limit card width for smaller screens */
+        padding: 15px;
+        max-width: 250px;
+    }
+
+    .hero-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     }
 }
 
-.news, .tutorials, .strategies {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
+@media (max-width: 768px) {
+    .news, .tutorials, .strategies {
+        grid-template-columns: 1fr;  /* Single column layout on small screens */
+    }
 
-.news article, .tutorials article, .strategies article {
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 15px;
-    transition: transform 0.3s ease;
-}
+    .hero-card {
+        padding: 10px;
+        max-width: 200px;
+    }
 
-.news article:hover, .tutorials article:hover, .strategies article:hover {
-    transform: scale(1.05);
-}
-
-footer {
-    text-align: center;
-    background-color: #333;
-    color: white;
-    padding: 10px;
+    .hero-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
 }

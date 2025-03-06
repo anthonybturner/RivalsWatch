@@ -7,18 +7,19 @@
                 <div class="hero-card">
                     <img class="hero" src="https://www.marvelrivalsapi.com{{ hero.image_url }}" alt="{{ hero.name }}">
                     <div class="hero-info">
-                        <h2>{{ hero.name }}</h2>
+                        <h2>{{ hero.name|title}}</h2>
                         <p><strong>Real Name:</strong> {{ hero.real_name }}</p>
                         <p><strong>Role:</strong> {{ hero.role }}</p>
                         <p><strong>Attack Type:</strong> {{ hero.attack_type }}</p>
                         <p><strong>Difficulty:</strong> {{ hero.difficulty }}</p>
-                        <p><strong>Bio:</strong> {{ hero.bio }}</p>
-                        <p><strong>Lore:</strong> {{ hero.lore }}</p>
                         <p><strong>Teams:</strong> 
                             {% for team in hero.team %}
                                 {{ team }}{% if not forloop.last %}, {% endif %}
                             {% endfor %}
                         </p>
+                        <hr>
+                        <p><strong>Bio:</strong> {{ hero.bio }}</p>
+                        <p><strong>Lore:</strong> {{ hero.lore }}</p>
                     </div>
                 </div>
             {% empty %}
