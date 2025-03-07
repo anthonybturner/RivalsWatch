@@ -28,7 +28,10 @@ SECRET_KEY = config('SECRET_KEY', default=config('DEFAULT_SECRET_KEY'))
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost').split(',')
-
+# Add your Render URL manually
+RENDER_HOSTNAME = config('RENDER_HOST')
+if RENDER_HOSTNAME not in ALLOWED_HOSTS:
+    ALLOWED_HOSTS.append(RENDER_HOSTNAME)
 # Application definition
 
 INSTALLED_APPS = [
@@ -50,6 +53,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+
 ]
 
 ROOT_URLCONF = 'marvel_rivals.urls'
@@ -116,7 +121,8 @@ STATICFILES_DIRS = [
     BASE_DIR / 'core' / 'static',
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
+# Enable static files compression and caching
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
