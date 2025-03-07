@@ -26,4 +26,6 @@ urlpatterns = [
     path('tutorials/', views.tutorials, name='tutorials'),
     path('admin/', admin.site.urls),
     path('api/', include('core.urls')),
+    path('player_stats/', views.player_stats, name='player_stats'),
+
 ]

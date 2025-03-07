@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import News, Tutorial, Strategy, Hero, DeveloperDiary
+from .models import News, Tutorial, Strategy, Hero, DeveloperDiary, PlayerStats
 from .services.lunarapi import get_lunar_data
 
 def home(request):
@@ -41,8 +41,7 @@ def strategies(request):
     strategies = Strategy.objects.all()  # Get all strategies
     return render(request, 'strategy.html', {'strategies': strategies})
 
-def lunar_data_view(request):
-    endpoint = "moonphase"  # Example endpoint
-    lunar_data = get_lunar_data(endpoint)
-    return render(request, 'lunar_data.html', {'lunar_data': lunar_data})
+def player_stats(request):
+    player_stats = PlayerStats.objects.all()  # Get all player stats
+    return render(request, 'player_stats.html', {'player_stats': player_stats})
 
