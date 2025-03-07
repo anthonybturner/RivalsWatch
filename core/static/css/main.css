@@ -157,6 +157,10 @@ img {
     width: 15%;
     height: auto;
 }
+img.hero {
+    width: 10%;
+    height: auto;
+}
 
 .hero {
     width: 10%;
