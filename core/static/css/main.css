@@ -54,11 +54,11 @@ section {
     padding: 50px 20px;
     margin: 20px 0;
 }
-section.dev-diaries, section.latest-news, section.latest-strategies, section.latest-tutorials {
+section.dev-diaries, section.latest-news, section.latest-strategies, section.latest-tutorials, section.player-stats, section.player-matches {
     border-radius: 5px;
     background: #2c3e50;
 }
-section.dev-diaries h3,section.latest-news h3, section.latest-strategies h3, section.latest-tutorials h3 {
+section.dev-diaries h3,section.latest-news h3, section.latest-strategies h3, section.latest-tutorials h3, section.player-stats h3, section.player-matches h3 {
     color: #fff;
 }
 /* Card Container */
