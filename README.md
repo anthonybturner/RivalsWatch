@@ -1,7 +1,7 @@
 # Marvel Rivals Data Tracker
 
 This is a Django web-based application built with Python 3.x that helps track and analyze gameplay data for **Marvel Rivals**. It leverages Django ORM, Django REST Framework, and a PostgreSQL database to provide an engaging and insightful user experience for competitive players.
-
+# https://rivalswatch.onrender.com/
 ## Key Features
 
 - **Django ORM**: Efficient database management using Django's Object-Relational Mapping system.
