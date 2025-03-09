@@ -42,7 +42,19 @@ pip install -r requirements.txt
 ### 4.  Set up PostgreSQL database (ensure PostgreSQL is installed and running):
     Create a database for the project.
     Update the database settings in settings.py to match your PostgreSQL configuration.
-    
+```python
+    DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'your_database_name',
+        'USER': 'your_database_user',
+        'PASSWORD': 'your_database_password',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
+```
+
 ### 5.  Apply migrations:
 ```python 
 python manage.py makemigrations
@@ -57,6 +69,7 @@ python manage.py runserver
 ## 7.  Visit localhost
  `http://127.0.0.1:portnumber` in your browser to access the application.
  where **port number** is the port where the application is running locally
+ By default, Django runs on port 8000, but you can change it if needed.
  e.g. [`http://127.0.0.1:8000`](http://127.0.0.1:8000)
  
  
@@ -69,10 +82,10 @@ python manage.py runserver
 
 ## Contributing
 - Fork the repository
-- Create a new branch (git checkout -b feature-name)
+- Create a new branch `(git checkout -b feature-name)`
 - Make your changes
-- Commit your changes (git commit -am 'Add feature')
-- Push to the branch (git push origin feature-name)
+- Commit your changes `(git commit -am 'Add feature')`
+- Push to the branch `(git push origin feature-name)`
 - Create a new Pull Request
 
 ## License
