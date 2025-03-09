@@ -1,9 +1,9 @@
 # Marvel Rivals Data Tracker
 
-This is a Django web-based application built with Python 3.x that helps track and analyze gameplay data for **Marvel Rivals**. It leverages Django ORM, Django REST Framework, and a PostgreSQL database to provide an engaging and insightful user experience for competitive players.
-# https://rivalswatch.onrender.com/
-## Key Features
+This is a Django web-based application built with Python 3.x that helps track and analyze gameplay data for [Marvel Rivals](http://www.marvelrivals.com). It leverages Django ORM, Django REST Framework, and a PostgreSQL database to provide an engaging and insightful user experience for competitive players.
 
+ [Site - RivalsWatch](https://rivalswatch.onrender.com/)
+## Key Features
 - **Django ORM**: Efficient database management using Django's Object-Relational Mapping system.
 - **Django REST Framework**: API-driven architecture for handling game data and interactions.
 - **PostgreSQL**: Robust, scalable database system for storing player stats, match data, and hero profiles.
@@ -14,7 +14,6 @@ This is a Django web-based application built with Python 3.x that helps track an
 - **Upcoming Features & News**: Stay updated on upcoming game features and news related to Marvel Rivals.
 
 ## Technologies Used
-
 - **Python 3.x**
 - **Django** (Web framework)
 - **Django REST Framework** (API framework)
@@ -23,34 +22,40 @@ This is a Django web-based application built with Python 3.x that helps track an
 
 ## Installation
 
-1.  Clone the repository:
-    ```bash
-    git clone https://github.com/yourusername/marvel-rivals-data-tracker.git
-    cd marvel-rivals-data-tracker
+### 1.  Clone the repository:
+```bash
+git clone https://github.com/yourusername/marvel-rivals-data-tracker.git 
+cd marvel-rivals-data-tracker 
+```
 
-2.  python3 -m venv venv
-    source venv/bin/activate  # On Windows: venv\Scripts\activate
+### 2.  python3 -m venv venv
+```bash 
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
 
-3.  pip install -r requirements.txt
+### 3. Install requirements
+```bash 
+pip install -r requirements.txt 
+```
 
-4.  Set up PostgreSQL database (ensure PostgreSQL is installed and running):
-
+### 4.  Set up PostgreSQL database (ensure PostgreSQL is installed and running):
     Create a database for the project.
     Update the database settings in settings.py to match your PostgreSQL configuration.
     
-5.  Apply migrations:
-    bash
-    Copy
-    Edit
-    python manage.py migrate
+### 5.  Apply migrations:
+```python 
+python manage.py migrate
+```
 
-6.  Start the development server:
-    bash
-    Copy
-    Edit
-    python manage.py runserver
+## 6.  Start the development server:
+```python
+python manage.py runserver
+```
 
-7.  Visit http://127.0.0.1:8000 in your browser to access the application.
+## 7.  Visit
+```html
+ http://127.0.0.1:8000 in your browser to access the application.
+ ```
 
 ##  Usage
 - **Search and view hero profiles**: Gain insight into hero stats, abilities, and strategies.
