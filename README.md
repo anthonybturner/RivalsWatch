@@ -1,8 +1,14 @@
 # Marvel Rivals Data Tracker
 
+[![Logo](/images/marvel_rivals.png)](http://marvelrivals.com)
+
 This is a Django web-based application built with Python 3.x that helps track and analyze gameplay data for [Marvel Rivals](http://www.marvelrivals.com). It leverages Django ORM, Django REST Framework, and a PostgreSQL database to provide an engaging and insightful user experience for competitive players.
 
- [Site - RivalsWatch](https://rivalswatch.onrender.com/)
+![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)
+![Release](https://img.shields.io/github/v/release/anthonybturner/RivalsWatch?color=brightgreen)
+
+
+ [RivalsWatch](https://rivalswatch.onrender.com/)
 ## Key Features
 - **Django ORM**: Efficient database management using Django's Object-Relational Mapping system.
 - **Django REST Framework**: API-driven architecture for handling game data and interactions.
@@ -88,5 +94,4 @@ python manage.py runserver
 - Push to the branch `(git push origin feature-name)`
 - Create a new Pull Request
 
-## License
-This project is licensed under the MIT License - see the LICENSE file for details.
+## License ![LICENSE](https://img.shields.io/badge/license-MIT-green.svg)
