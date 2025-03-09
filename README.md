@@ -28,8 +28,9 @@ git clone https://github.com/yourusername/marvel-rivals-data-tracker.git
 cd marvel-rivals-data-tracker 
 ```
 
-### 2.  python3 -m venv venv
+### 2.  Create the virtual environment and activate it
 ```bash 
+python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```
 
@@ -44,6 +45,7 @@ pip install -r requirements.txt
     
 ### 5.  Apply migrations:
 ```python 
+python manage.py makemigrations
 python manage.py migrate
 ```
 
@@ -52,10 +54,12 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-## 7.  Visit
-```html
- http://127.0.0.1:8000 in your browser to access the application.
- ```
+## 7.  Visit localhost
+ `http://127.0.0.1:portnumber` in your browser to access the application.
+ where **port number** is the port where the application is running locally
+ e.g. [`http://127.0.0.1:8000`](http://127.0.0.1:8000)
+ 
+ 
 
 ##  Usage
 - **Search and view hero profiles**: Gain insight into hero stats, abilities, and strategies.
