@@ -95,4 +95,5 @@ python manage.py runserver
 - Push to the branch `(git push origin feature-name)`
 - Create a new Pull Request
 
-## License ![LICENSE](https://img.shields.io/badge/license-MIT-green.svg)
+## License 
+[![LICENSE](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
