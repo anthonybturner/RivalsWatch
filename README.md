@@ -1,11 +1,11 @@
 # Marvel Rivals Data Tracker
 
-[![Logo](/images/marvel_rivals.png)](http://marvelrivals.com)
-
+<img src="images/marvel_rivals.png" alt="logo" width=300/>
 This is a Django web-based application built with Python 3.x that helps track and analyze gameplay data for [Marvel Rivals](http://www.marvelrivals.com). It leverages Django ORM, Django REST Framework, and a PostgreSQL database to provide an engaging and insightful user experience for competitive players.
 
-![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)
 ![Release](https://img.shields.io/github/v/release/anthonybturner/RivalsWatch?color=brightgreen)
+![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)
+![Python](https://img.shields.io/badge/Python-3.x-green)
 
 
  [RivalsWatch](https://rivalswatch.onrender.com/)
