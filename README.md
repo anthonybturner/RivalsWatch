@@ -1,6 +1,6 @@
 # Marvel Rivals Data Tracker
 
-<img src="images/marvel_rivals_blk.png" alt="logo" style="border: 2px solid #000;"/>
+[![Logo](/images/marvel_rivals_blk.png)](http://marvelrivals.com)
 
 This is a Django web-based application built with Python 3.x that helps track and analyze gameplay data for [Marvel Rivals](http://www.marvelrivals.com). It leverages Django ORM, Django REST Framework, and a PostgreSQL database to provide an engaging and insightful user experience for competitive players.
 
