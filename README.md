@@ -31,8 +31,8 @@ This is a Django web-based application built with Python 3.x that helps track an
 
 ### 1.  Clone the repository:
 ```bash
-git clone https://github.com/yourusername/marvel-rivals-data-tracker.git 
-cd marvel-rivals-data-tracker 
+git clone https://github.com/anthonybturner/MarvelRivals.git 
+cd marvel_rivals 
 ```
 
 ### 2.  Create the virtual environment and activate it
