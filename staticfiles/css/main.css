@@ -7,7 +7,7 @@ body {
 }
 
 header {
-    background-color: #222;
+    background-color: #2c3e53;
     color: white;
     padding: 20px;
     text-align: center;
@@ -39,7 +39,7 @@ p {
 
 /* Intro Section */
 .intro {
-    background-color: #222;
+    background-color: #2c3e53;
     color: white;
     padding: 50px;
     text-align: center;
@@ -78,7 +78,7 @@ section.dev-diaries h3,section.latest-news h3, section.latest-strategies h3, sec
     margin-bottom: 12px;
 }
 .dev-card-container h3{
-    color: #000 !important;
+    color: #000 !important; 
 }
 .card-container {
     display: grid;
@@ -180,10 +180,11 @@ img.hero-thumb {
 .navbar {
     display: flex;
     justify-content: center;
-    background-color: #333;
+    background-color: #2c3e53;
 }
 
 .navbar a {
+    font-size: large;
     color: white;
     padding: 14px 20px;
     text-decoration: none;
@@ -191,7 +192,8 @@ img.hero-thumb {
 }
 
 .navbar a:hover {
-    background-color: #000000;
+    background-color: #ffffff;
+    color: #000;
 }
 
 /* Image Styles */
