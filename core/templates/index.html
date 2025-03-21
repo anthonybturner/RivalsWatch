@@ -21,7 +21,7 @@
                         <h3>{{ article.title }}</h3>
                         <h4>{{ article.overview }}</h4>
                         <p>{{ article.date }}</p>
-                        <p>{{ article.full_content|safe }}</p>
+                        <p>{{ article.full_content|urlize|safe }}</p>
                     </div>
                 </div>
             {% endfor %}
