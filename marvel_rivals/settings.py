@@ -75,15 +75,6 @@ TEMPLATES = [
     },
 ]   
 
-
-# Only enable Debug Toolbar when running locally (based on ALLOWED_HOSTS or DEBUG)
-if '127.0.0.1' in ALLOWED_HOSTS or 'localhost' in ALLOWED_HOSTS:
-    INSTALLED_APPS.append('debug_toolbar')
-    MIDDLEWARE.insert(0, 'debug_toolbar.middleware.DebugToolbarMiddleware')
-
-    # Optionally restrict to localhost IPs for safety
-    INTERNAL_IPS = ['127.0.0.1', 'localhost']
-
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
