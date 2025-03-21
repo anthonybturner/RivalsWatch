@@ -1,11 +1,13 @@
 {% extends "base.html" %}
 {% load custom_filters %}
 
+{% block page_header %}
+    <h4>Match history</h4>
+{% endblock %}
 
 {% block content %}
 <!-- Latest match history section -->
 <section class="player-matches">
-    <h3>Player Matches</h3>
     <div class="card-container news">
         {% for match in match_history %}
             <div class="card">

@@ -7,11 +7,57 @@ body {
 }
 
 header {
-    background-color: #2c3e53;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #000;
     color: white;
-    padding: 20px;
     text-align: center;
-    font-size: 24px;
+    position: relative;
+    font-size: 18px;
+    border-bottom: 1px solid #e30000;
+    padding: 20px 0px 20px 0px;
+}
+
+header h4{
+    padding-left: 20px;
+    margin: 0;
+    flex-shrink: 0;
+}
+main{
+    background: #000;
+}
+main h4{
+    font-size: 18px;
+    background: #000;
+    margin: 0;
+    color: #fff;
+    margin-bottom: 12px;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e30000;
+}
+/* Navbar */
+.navbar {
+    transform: translateX(-50%);
+    left: 50%;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    background-color: #000000;
+}
+
+.navbar a {
+    color: white;
+    padding: 14px 20px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.navbar a:hover {
+    background-color: #e30000;
+    color: white;
 }
 
 h2 {
@@ -21,11 +67,12 @@ h2 {
 }
 
 h3 {
-    color: #222;
+    color: #ffffff;
     font-size: 1.8rem;
     margin-bottom: 20px;
     text-transform: uppercase;
     letter-spacing: 1px;
+    border-bottom: 1px solid #fff;
 }
 .intro-content p{
     color: #ffffff;
@@ -33,17 +80,18 @@ h3 {
 
 p {
     font-size: 1rem;
-    color: #000000;
+    color: #ffffff;
     line-height: 1.6;
 }
 
 /* Intro Section */
 .intro {
-    background-color: #2c3e53;
-    background-image: url('/static/images/banner.jpg');
-    color: white;
-    padding: 50px;
-    text-align: center;
+    background: #000;
+    background-size: cover;
+    background-image: url('/static/images/marvel_rivals_banner.png');
+    height: 377px;
+    margin: 0;
+    border-radius: 0px 0px 4px 4px;
 }
 
 .intro h2 {
@@ -57,30 +105,10 @@ section {
 }
 section.dev-diaries, section.latest-news, section.latest-strategies, section.latest-tutorials, section.player-stats, section.player-matches {
     border-radius: 5px;
-    background: #2c3e50;
+    background: #000000;
 }
-section.dev-diaries h3,section.latest-news h3, section.latest-strategies h3, section.latest-tutorials h3, section.player-stats h3, section.player-matches h3 {
-    color: #fff;
-}
-.loser{
-    background: red;
-}
-.winner{
-    background: #27ae60;
-}
+
 /* Card Container */
-.dev-card-container{
-    background-color: #2c3d50;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: transform 0.3s ease;
-    display: block;
-    margin-bottom: 12px;
-}
-.dev-card-container h3{
-    color: #000 !important; 
-}
 .card-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
@@ -88,28 +116,13 @@ section.dev-diaries h3,section.latest-news h3, section.latest-strategies h3, sec
 }
 .card-content p:nth-child(odd) {
     background: #e5c528;
-    margin: 0;
-    padding: 0;
 }
 .card-content img {
     width: 100%;
     height: auto;
 }
-img.hero-thumb {
-    width: 50%;
-    height: auto;
-}
 /* Card Styling */
-.dev-card {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: transform 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 12px;
-}
+
 .card {
     background-color: white;
     border-radius: 10px;
@@ -140,16 +153,24 @@ img.hero-thumb {
 
 /* Card Content */
 .card-content {
-    padding: 0px;
+    padding: 4px;
+    border-radius: 6px;
+    background: #fff;
+    margin-bottom: 12px;
 }
 
+.card-content p{
+    color: #000;
+}
+.card-content h3 {
+    background: #000;
+    text-align: center;
+}
 .card-content h4 {
     font-size: 1.2rem;
     color: #fff;
-    margin-bottom: 0px;
-    background: #2c3d50;
-    padding: 0;
-    margin-top: -3px;
+    padding: 12px;
+    text-align: left;
 }
 .card-content .overview {
     font-style: italic;
@@ -175,26 +196,6 @@ img.hero-thumb {
 
 .read-more-btn:hover {
     background-color: #2980b9;
-}
-
-/* Navbar */
-.navbar {
-    display: flex;
-    justify-content: center;
-    background-color: #2c3e53;
-}
-
-.navbar a {
-    font-size: large;
-    color: white;
-    padding: 14px 20px;
-    text-decoration: none;
-    text-align: center;
-}
-
-.navbar a:hover {
-    background-color: #ffffff;
-    color: #000;
 }
 
 /* Image Styles */
