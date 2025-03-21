@@ -15,7 +15,7 @@ class Command(BaseCommand):
             response = requests.get(url, headers=headers)
             response.raise_for_status()  # Raises an error for non-200 responses
             data = response.json()
-            dev_diaries_data = data.get("formatted_entries", [])
+            dev_diaries_data = data.get("dev_diaries", [])
         except requests.exceptions.RequestException as e:
             self.stderr.write(self.style.ERROR(f"API Request failed: {e}"))
             return
