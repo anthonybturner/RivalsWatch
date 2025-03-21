@@ -78,7 +78,7 @@ section.dev-diaries h3,section.latest-news h3, section.latest-strategies h3, sec
     margin-bottom: 12px;
 }
 .dev-card-container h3{
-    color: #000;
+    color: #000 !important;
 }
 .card-container {
     display: grid;
@@ -87,6 +87,8 @@ section.dev-diaries h3,section.latest-news h3, section.latest-strategies h3, sec
 }
 .card-content p:nth-child(odd) {
     background: #e5c528;
+    margin: 0;
+    padding: 0;
 }
 .card-content img {
     width: 100%;
