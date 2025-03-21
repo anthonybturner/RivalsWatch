@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load custom_filters %}
+
+
+{% block content %}
+<!-- Latest match history section -->
+<section class="player-matches">
+    <h3>Player Matches</h3>
+    <div class="card-container news">
+        {% for match in match_history %}
+            <div class="card">
+                
+                <div class="card-content">
+                    <img src="https://www.marvelrivalsapi.com/{{ match.map_thumbnail }}" alt="Map Thumbnail">
+                    <h4>Match Info</h4>
+                    <p><strong>ID: {{ match.match_uid }}</strong></p>
+                    <p><strong>Season:</strong> {{ match.match_season }}</p>
+                    <p><strong>Duration:</strong> {{ match.match_play_duration }} seconds</p>
+                    <p  class="{% if match.match_winner_side %}winner{% else %}loser{% endif %}"><strong>Winner Side:</strong> {% if  match.match_winner_side %} Yes {% else %} No {% endif %}</p>
+                    <p><strong>Score:</strong> {{ match.score_info.score_info|to_dict|get_item:"0" }} - {{ match.score_info.score_info|to_dict|get_item:"1" }}</p>
+                    <p><strong>Game Mode ID:</strong> {{ match.game_mode_id }}</p>
+                    <h4>Player Performance</h4>
+                    <p><strong>Kills:</strong> {{ match.match_player.kills }}</p>
+                    <p><strong>Deaths:</strong> {{ match.match_player.deaths }}</p>
+                    <p><strong>Assists:</strong> {{ match.match_player.assists }}</p>
+                    <p><strong>Hero:</strong> {{ match.match_player.player_hero.hero_name }}</p>
+                    <p><strong>Hero Kills:</strong> {{ match.match_player.player_hero.kills }}</p>
+                    <p><strong>Hero Deaths:</strong> {{ match.match_player.player_hero.deaths }}</p>
+                    <p><strong>Damage Done:</strong> {{ match.match_player.player_hero.total_hero_damage }}</p>
+                </div>
+            </div>
+        {% empty %}
+            <p>No match history available.</p>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import News, Tutorial, Strategy, Hero, DeveloperDiary, PlayerStats, PlayerMatches
+from .models import News, Tutorial, Strategy, Hero, DeveloperDiary, PlayerStats, MatchHistory
 from .services.lunarapi import get_lunar_data
 
 def home(request):
@@ -45,7 +45,9 @@ def player_stats(request):
     player_stats = PlayerStats.objects.all()  # Get all player stats
     return render(request, 'player_stats.html', {'player_stats': player_stats})
 
-def player_matches(request):
-    player_matches = PlayerMatches.objects.all()  # Get all player matches
-    return render(request, 'player_matches.html', {'player_matches': player_matches})
+def match_history(request):
+    match_history = MatchHistory.objects.all()  # Get all player matches
+    for match in match_history:
+        print(type(match.score_info), match.score_info)
+    return render(request, 'match_history.html', {'match_history': match_history})
 

@@ -54,20 +54,32 @@ section {
     padding: 50px 20px;
     margin: 20px 0;
 }
-section.dev-diaries, section.latest-news, section.latest-strategies, section.latest-tutorials {
+section.dev-diaries, section.latest-news, section.latest-strategies, section.latest-tutorials, section.player-stats, section.player-matches {
     border-radius: 5px;
     background: #2c3e50;
 }
-section.dev-diaries h3,section.latest-news h3, section.latest-strategies h3, section.latest-tutorials h3 {
+section.dev-diaries h3,section.latest-news h3, section.latest-strategies h3, section.latest-tutorials h3, section.player-stats h3, section.player-matches h3 {
     color: #fff;
+}
+.loser{
+    background: red;
+}
+.winner{
+    background: #27ae60;
 }
 /* Card Container */
 .card-container {
-    display: block;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 12px; /* Spacing between cards */
 }
-
+.card-content p:nth-child(odd) {
+    background: #e5c528;
+}
+.card-content img {
+    width: 100%;
+    height: auto;
+}
 /* Card Styling */
 .card {
     background-color: white;
@@ -99,15 +111,17 @@ section.dev-diaries h3,section.latest-news h3, section.latest-strategies h3, sec
 
 /* Card Content */
 .card-content {
-    padding: 20px;
+    padding: 0px;
 }
 
 .card-content h4 {
     font-size: 1.2rem;
-    color: #333;
-    margin-bottom: 10px;
+    color: #fff;
+    margin-bottom: 0px;
+    background: #2c3d50;
+    padding: 0;
+    margin-top: -3px;
 }
-
 .card-content .overview {
     font-style: italic;
     color: #777;

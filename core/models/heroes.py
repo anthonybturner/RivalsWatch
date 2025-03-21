@@ -18,7 +18,7 @@ class Hero(models.Model):
 
 class Transformation(models.Model):
     id = models.AutoField(primary_key=True)  # Explicit primary key for Transformation
-    hero = models.ForeignKey(Hero, related_name='transformations', on_delete=models.CASCADE)
+    hero = models.ForeignKey("Hero", related_name='transformations', on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
     icon = models.CharField(max_length=255)
     health = models.CharField(max_length=255)
@@ -40,7 +40,7 @@ class Quality(models.Model):
 
 class Costume(models.Model):
     id = models.AutoField(primary_key=True)  # Explicit primary key for Costume
-    hero = models.ForeignKey(Hero, related_name='costumes', on_delete=models.CASCADE)  # Link to Hero
+    hero = models.ForeignKey("Hero", related_name='costumes', on_delete=models.CASCADE)  # Link to Hero
     name = models.CharField(max_length=255)
     image_url = models.CharField(max_length=255)
     quality_name = models.CharField(max_length=100, default="Unknown")  
@@ -55,7 +55,7 @@ class Costume(models.Model):
 
 class Ability(models.Model):
     id = models.AutoField(primary_key=True)  # Explicit primary key
-    hero = models.ForeignKey(Hero, related_name='abilities', on_delete=models.CASCADE)  # Link to Hero
+    hero = models.ForeignKey("Hero", related_name='abilities', on_delete=models.CASCADE)  # Link to Hero
     name = models.CharField(max_length=255)
     icon = models.CharField(max_length=255)
     type = models.CharField(max_length=100, default="Normal")

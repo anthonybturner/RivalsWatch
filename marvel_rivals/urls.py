@@ -27,6 +27,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('core.urls')),
     path('player_stats/', views.player_stats, name='player_stats'),
-    path('player_matches/', views.player_matches, name='player_matches'),
-
+    path('player_matches/', views.match_history, name='player_matches'),
+    path('match_history/', views.match_history, name='match_history_list'),
 ]
