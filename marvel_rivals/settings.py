@@ -33,10 +33,8 @@ RENDER_HOSTNAME = config('RENDER_HOST')
 if RENDER_HOSTNAME not in ALLOWED_HOSTS:
     ALLOWED_HOSTS.append(RENDER_HOSTNAME)
 # Application definition
-
 INSTALLED_APPS = [
     'corsheaders',
-    'debug_toolbar',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -48,7 +46,6 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'corsheaders.middleware.CorsMiddleware',  # Add this at the top
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -77,6 +74,15 @@ TEMPLATES = [
         },
     },
 ]   
+
+
+# Only enable Debug Toolbar when running locally (based on ALLOWED_HOSTS or DEBUG)
+if '127.0.0.1' in ALLOWED_HOSTS or 'localhost' in ALLOWED_HOSTS:
+    INSTALLED_APPS.append('debug_toolbar')
+    MIDDLEWARE.insert(0, 'debug_toolbar.middleware.DebugToolbarMiddleware')
+
+    # Optionally restrict to localhost IPs for safety
+    INTERNAL_IPS = ['127.0.0.1', 'localhost']
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
