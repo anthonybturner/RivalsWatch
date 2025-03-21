@@ -80,6 +80,10 @@ section.dev-diaries h3,section.latest-news h3, section.latest-strategies h3, sec
     width: 100%;
     height: auto;
 }
+img.hero-thumb {
+    width: 50%;
+    height: auto;
+}
 /* Card Styling */
 .card {
     background-color: white;

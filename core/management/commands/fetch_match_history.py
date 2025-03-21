@@ -3,7 +3,7 @@ from django.core.management.base import BaseCommand
 from core.models import MatchHistory, Player, ScoreInfo, Hero
 from decouple import config
 from utilities.converter import seconds_minutes
-from core.models.match_history import MatchPlayer, IsWin
+from core.models.match_history import MatchesPlayer, IsWin, PlayerHero
 import ast
 from django.core.exceptions import ValidationError
 
@@ -89,26 +89,48 @@ class Command(BaseCommand):
                     score=is_win_data.get("score", 0),  # Default to 0 if "score" doesn't exist
                     is_win=is_win_data.get("is_win", False)  # Default to False if "is_win" doesn't exist
                 )
-                match_player = MatchPlayer.objects.update_or_create(
-                    player=player_obj,
-                    assists=match.get("match_player", {}).get("assists", 0),  # Default to 0 if "assists" is not present
-                    kills=match.get("match_player", {}).get("kills", 0),  # Default to 0 if "kills" is not present
-                    deaths=match.get("match_player", {}).get("deaths", 0),  # Default to 0 if "deaths" is not present
-                    is_win=is_win_instance  # Linking to the IsWin instance
+                    
+                matches_player = MatchesPlayer.objects.create(
+                    player=player_obj,  # The player to associate with
+                    assists=match.get("match_player", {}).get("assists", 0),
+                    kills=match.get("match_player", {}).get("kills", 0),
+                    deaths=match.get("match_player", {}).get("deaths", 0),
+                    is_win=is_win_instance,  # Link to the is_win instance for this match
                 )
                 
+                
                 # Handle player data
-                player_hero_data = match.get("player_hero", {})
+                player_hero_data = match.get("match_player", {}).get("player_hero", {})
                 # Assuming you already have a Hero with a matching `hero_id`
                 try:
-                    player_hero = Hero.objects.get(id=player_hero_data.get("hero_id"))
-                except Hero.DoesNotExist:
-                    player_hero = None  # Set to None if hero doesn't exist
+                    hero = Hero.objects.get(id=player_hero_data.get("hero_id"))
+                    # Assuming `PlayerHero` is a model that links the `Hero` to the player in a match
+                    player_hero, created = PlayerHero.objects.get_or_create(
+                        hero_id=hero.id,  # Unique identifier for the hero
+                        hero_name=hero.name,  # Name of the hero
+                        hero_type=hero.image_url,  # URL to the hero's image or type
+                        defaults={
+                            'kills': player_hero_data.get('kills', 0),
+                            'deaths': player_hero_data.get('deaths', 0),
+                            'assists': player_hero_data.get('assists', 0),
+                            'play_time': player_hero_data.get('play_time', 0),
+                            'total_hero_damage': player_hero_data.get('total_hero_damage', 0),
+                            'total_damage_taken': player_hero_data.get('total_damage_taken', 0),
+                            'total_hero_heal': player_hero_data.get('total_hero_heal', 0),
+                        }
+                    )
 
-               
+                    # Now assign the PlayerHero instance to the MatchesPlayer
+                    matches_player.player_hero = player_hero
+                    matches_player.save()
                 
+                except Hero.DoesNotExist:
+                    player_hero = None  # Set to None if the hero doesn't exist
+                    matches_player.player_hero = player_hero
+                    matches_player.save()
+
                 # Handle match history data
-                match_camp = match.get("camp", 0),
+                match_camp = match.get("camp", 0)
                 # Ensure camp is a valid integer, or set a fallback value if necessary
                 if match_camp not in [0, 1]:  # Assuming camp can only be 0 or 1
                     match_camp = 0  # Default to 0 if the value is invalid
@@ -128,10 +150,10 @@ class Command(BaseCommand):
                         "match_time_stamp": match.get("match_time_stamp", 0),
                         "play_mode_id": match.get("play_mode_id", 0),
                         "game_mode_id": match.get("game_mode_id", 0),
-                      # "match_player": match_player,
+                        "matches_player": matches_player,
                         "disconnected": match.get("disconnected", False),
                         "camp": match_camp,
-                        "player_hero": player_hero,
+                        "player_hero": hero,
                         "player": player_obj,
                     },
                 )

@@ -47,7 +47,4 @@ def player_stats(request):
 
 def match_history(request):
     match_history = MatchHistory.objects.all()  # Get all player matches
-    for match in match_history:
-        print(type(match.score_info), match.score_info)
     return render(request, 'match_history.html', {'match_history': match_history})
-
