@@ -1,5 +1,6 @@
 /* General Styles */
 body {
+    color: #fff;
     font-family: 'Roboto', sans-serif;
     background-color: #f5f5f5;
     margin: 0;
@@ -7,11 +8,57 @@ body {
 }
 
 header {
-    background-color: #222;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #000;
     color: white;
-    padding: 20px;
     text-align: center;
-    font-size: 24px;
+    position: relative;
+    font-size: 18px;
+    border-bottom: 1px solid #e30000;
+    padding: 20px 0px 20px 0px;
+}
+
+header h4{
+    padding-left: 20px;
+    margin: 0;
+    flex-shrink: 0;
+}
+main{
+    background: #000;
+}
+main h4{
+    font-size: 18px;
+    background: #000;
+    margin: 0;
+    color: #fff;
+    margin-bottom: 12px;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e30000;
+}
+/* Navbar */
+.navbar {
+    transform: translateX(-50%);
+    left: 50%;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    background-color: #000000;
+}
+
+.navbar a {
+    color: white;
+    padding: 14px 20px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.navbar a:hover {
+    background-color: #e30000;
+    color: white;
 }
 
 h2 {
@@ -21,11 +68,12 @@ h2 {
 }
 
 h3 {
-    color: #222;
+    color: #ffffff;
     font-size: 1.8rem;
     margin-bottom: 20px;
     text-transform: uppercase;
     letter-spacing: 1px;
+    border-bottom: 1px solid #fff;
 }
 .intro-content p{
     color: #ffffff;
@@ -33,16 +81,18 @@ h3 {
 
 p {
     font-size: 1rem;
-    color: #000000;
+    color: #ffffff;
     line-height: 1.6;
 }
 
 /* Intro Section */
 .intro {
-    background-color: #222;
-    color: white;
-    padding: 50px;
-    text-align: center;
+    background: #000;
+    background-size: cover;
+    background-image: url('/static/images/marvel_rivals_banner.png');
+    height: 377px;
+    margin: 0;
+    border-radius: 0px 0px 4px 4px;
 }
 
 .intro h2 {
@@ -56,11 +106,9 @@ section {
 }
 section.dev-diaries, section.latest-news, section.latest-strategies, section.latest-tutorials, section.player-stats, section.player-matches {
     border-radius: 5px;
-    background: #2c3e50;
+    background: #000000;
 }
-section.dev-diaries h3,section.latest-news h3, section.latest-strategies h3, section.latest-tutorials h3, section.player-stats h3, section.player-matches h3 {
-    color: #fff;
-}
+
 /* Card Container */
 .card-container {
     display: grid;
@@ -75,6 +123,7 @@ section.dev-diaries h3,section.latest-news h3, section.latest-strategies h3, sec
     height: auto;
 }
 /* Card Styling */
+
 .card {
     background-color: white;
     border-radius: 10px;
@@ -105,16 +154,24 @@ section.dev-diaries h3,section.latest-news h3, section.latest-strategies h3, sec
 
 /* Card Content */
 .card-content {
-    padding: 0px;
+    padding: 4px;
+    border-radius: 6px;
+    background: #fff;
+    margin-bottom: 12px;
 }
 
+.card-content p{
+    color: #000;
+}
+.card-content h3 {
+    background: #000;
+    text-align: center;
+}
 .card-content h4 {
     font-size: 1.2rem;
     color: #fff;
-    margin-bottom: 0px;
-    background: #2c3d50;
-    padding: 0;
-    margin-top: -3px;
+    padding: 12px;
+    text-align: left;
 }
 .card-content .overview {
     font-style: italic;
@@ -140,24 +197,6 @@ section.dev-diaries h3,section.latest-news h3, section.latest-strategies h3, sec
 
 .read-more-btn:hover {
     background-color: #2980b9;
-}
-
-/* Navbar */
-.navbar {
-    display: flex;
-    justify-content: center;
-    background-color: #333;
-}
-
-.navbar a {
-    color: white;
-    padding: 14px 20px;
-    text-decoration: none;
-    text-align: center;
-}
-
-.navbar a:hover {
-    background-color: #000000;
 }
 
 /* Image Styles */
@@ -229,7 +268,7 @@ img.hero {
 
 .hero-info p {
     font-size: 1rem;
-    color: #555;
+    color: #000000;
     margin: 5px 0;
 }
 
@@ -249,7 +288,70 @@ img.hero {
     background-color: #333;
     transform: translateY(-2px);
 }
+.players-list {
+    color: #000000;
+    display: ruby;
+    margin-bottom: 12px;
 
+}
+
+.player-card {
+    background: #ffffff;
+    color: #000000;
+    border-radius: 4px;
+    /* margin-right: 8px; */
+    gap: 12px;
+    margin-bottom: 12px;
+    margin-right: 4px;
+    font-size: larger;
+}
+
+.match-card{
+    border-radius: 5px;
+    background: #ffffff;
+    padding: 2px 0;
+    margin-bottom: 8px;
+}
+.match-card h3{
+    background: #000;
+    color: #fff;
+}
+.match-stats table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.match-stats th, .match-stats td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+.match-stats p{
+    width: 20%;
+    color: #000;
+}
+.match-stats th {
+    color: #000;
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.match-stats td {
+    text-align: center;
+    background: #fff;
+    color: #000;
+}
+.match-stats img{
+    width: 20%;
+    height: auto;
+    float: left;
+}
+.match-stats ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
 /* Responsive Design */
 @media (max-width: 1024px) {
     .news, .tutorials, .strategies {

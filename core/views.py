@@ -46,5 +46,10 @@ def player_stats(request):
     return render(request, 'player_stats.html', {'player_stats': player_stats})
 
 def match_history(request):
-    match_history = MatchHistory.objects.all()  # Get all player matches
+    match_history = MatchHistory.objects.prefetch_related('match_details').all()  # Fetch all matches with details
+
+    # Debugging Output
+    for match in match_history:
+        print(f"Match: {match.match_uid}, Details: {match.match_details}")
+
     return render(request, 'match_history.html', {'match_history': match_history})
