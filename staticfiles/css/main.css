@@ -1,5 +1,6 @@
 /* General Styles */
 body {
+    color: #fff;
     font-family: 'Roboto', sans-serif;
     background-color: #f5f5f5;
     margin: 0;
@@ -267,7 +268,7 @@ img.hero {
 
 .hero-info p {
     font-size: 1rem;
-    color: #555;
+    color: #000000;
     margin: 5px 0;
 }
 
@@ -287,7 +288,70 @@ img.hero {
     background-color: #333;
     transform: translateY(-2px);
 }
+.players-list {
+    color: #000000;
+    display: ruby;
+    margin-bottom: 12px;
 
+}
+
+.player-card {
+    background: #ffffff;
+    color: #000000;
+    border-radius: 4px;
+    /* margin-right: 8px; */
+    gap: 12px;
+    margin-bottom: 12px;
+    margin-right: 4px;
+    font-size: larger;
+}
+
+.match-card{
+    border-radius: 5px;
+    background: #ffffff;
+    padding: 2px 0;
+    margin-bottom: 8px;
+}
+.match-card h3{
+    background: #000;
+    color: #fff;
+}
+.match-stats table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.match-stats th, .match-stats td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+.match-stats p{
+    width: 20%;
+    color: #000;
+}
+.match-stats th {
+    color: #000;
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.match-stats td {
+    text-align: center;
+    background: #fff;
+    color: #000;
+}
+.match-stats img{
+    width: 20%;
+    height: auto;
+    float: left;
+}
+.match-stats ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
 /* Responsive Design */
 @media (max-width: 1024px) {
     .news, .tutorials, .strategies {
