@@ -203,6 +203,7 @@ class Command(BaseCommand):
                     "player_icon": match_player.get("player_icon"),
                     "camp": match_player.get("camp", 0),
                     "cur_hero_id": match_player.get("cur_hero_id"),
+                    "cur_hero_icon": match_player.get("cur_hero_icon"),
                     "is_win": bool( match_player.get("is_win")),
                     "kills": match_player.get("kills", 0),  # Default to 0 if not present
                     "deaths": match_player.get("deaths", 0),  # Default to 0 if not present

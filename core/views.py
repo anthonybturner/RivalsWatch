@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from .models import News, Tutorial, Strategy, Hero, DeveloperDiary, PlayerStats, MatchHistory
+from django.shortcuts import render, get_object_or_404
+from .models import News, Tutorial, Strategy, Hero, DeveloperDiary, PlayerStats, MatchHistory, MatchesPlayer
 from .services.lunarapi import get_lunar_data
 
 def home(request):
@@ -47,9 +47,13 @@ def player_stats(request):
 
 def match_history(request):
     match_history = MatchHistory.objects.prefetch_related('match_details').all()  # Fetch all matches with details
-
-    # Debugging Output
-    for match in match_history:
-        print(f"Match: {match.match_uid}, Details: {match.match_details}")
-
     return render(request, 'match_history.html', {'match_history': match_history})
+
+def match_history_details(request, match_uid):
+    match = get_object_or_404(MatchHistory.objects.prefetch_related('match_details'), match_uid=match_uid)
+    players = match.match_details.match_players.all().order_by('-is_win')
+
+    for player in players:
+        print(player)
+        
+    return render(request, 'match_history_details.html', {'players': players})

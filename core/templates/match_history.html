@@ -10,79 +10,44 @@
     <div class="match-cards-container">
         {% for match in match_history %}
         <div class="match-card">
-            <h3>Match Stats</h3>
+            <h3 class="{% if match.match_winner_side %}winner{% else %}loser{% endif %}">Match Stats</h3>
             <!-- Match Stats in Table Format -->
-            <div class="match-stats">
-                <table> 
-                    <thead>
-                        <th>Hero</th>
-                        <th>Hero Kills</th>
-                        <th>Hero Deaths</th>
-                        <th>Damage Done</th>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><p>{{ match.matches_player.player_hero.hero_name }}</p> <img src="https://www.marvelrivalsapi.com/{{ match.matches_player.player_hero.hero_type }}" alt="Hero Thumbnail"></td>
-                            <td>{{ match.matches_player.player_hero.kills }}</td>
-                            <td>{{ match.matches_player.player_hero.deaths }}</td>                      
-                            <td>{{ match.matches_player.player_hero.total_hero_damage }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Match UID</th>
-                            <th>Season</th>                            
-                            <th>Duration</th>
-                            <th>Winner Side</th>
-                            <th>Score</th>
-                            <th>Game Mode</th>
-                            <th>Kills</th>
-                            <th>Deaths</th>
-                            <th>Assists</th>
-                      
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Match Header Content -->
-                        <tr>
-                            <td>{{ match.match_uid }}</td>
-                            <td>{{ match.match_season }}</td>
-                            <td>{{ match.match_play_duration }} seconds</td>
-                            <td>{% if match.match_winner_side %} Yes {% else %} No {% endif %}</td>
-                            <td>{{ match.score_info.score_info|to_dict|get_item:"0" }} - {{ match.score_info.score_info|to_dict|get_item:"1" }}</td>
-                            <td>{{ match.game_mode_id }}</td>
-                            <td>{{ match.matches_player.kills }}</td>
-                            <td>{{ match.matches_player.deaths }}</td>
-                            <td>{{ match.matches_player.assists }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="match-details">
-                <h3>Match Details</h3>
-                {% if match.match_details %}
-                    <div class="players-list">
-                        {% for player in match.match_details.match_players.all %}
-                            <div class="player-card">
-                                <img src="https://www.marvelrivalsapi.com/{{ player.player_icon }}" alt="Player Icon" class="player-icon">
-                                <div class="player-info">
-                                    <h4>{{ player.nick_name }}</h4>
-                                    <ul class="performance-list">
-                                        <li><strong>Kills:</strong> {{ player.kills }}</li>
-                                        <li><strong>Deaths:</strong> {{ player.deaths }}</li>
-                                        <li><strong>Assists:</strong> {{ player.assists }}</li>
-                                        <li><strong>Damage Done:</strong> {{ player.total_hero_damage }}</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        {% endfor %}
-                    </div>
-                {% else %}
-                    <p>No additional match details available for this match.</p>
-                {% endif %}
-            </div>
+            <a href="{% url 'match_details' match.match_uid %}">
+                <div class="match-stats">
+                    <table> 
+                            <tr>
+                                <th>Hero</th>
+                                <th>Match UID</th>
+                                <th>Season</th>                            
+                                <th>Duration</th>
+                                <th>Winner Side</th>
+                                <th>Score</th>
+                                <th>Game Mode</th>
+                                <th>Kills</th>
+                                <th>Deaths</th>
+                                <th>Assists</th>
+                                <th>Damage</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                            <!-- Match Header Content -->
+                            <tr>
+                                <td style="background-size: cover; height:auto; width: 0%; padding: 60px; background-image: url('https://www.marvelrivalsapi.com/{{ match.matches_player.player_hero.hero_type }}')"></td>
+                                <td>{{ match.match_uid }}</td>
+                                <td>{{ match.match_season }}</td>
+                                <td>{{ match.match_play_duration }} seconds</td>
+                                <td>{% if match.match_winner_side %} Yes {% else %} No {% endif %}</td>
+                                <td>{{ match.score_info.score_info|to_dict|get_item:"0" }} - {{ match.score_info.score_info|to_dict|get_item:"1" }}</td>
+                                <td>{{ match.game_mode_id }}</td>
+                                <td>{{ match.matches_player.kills }}</td>
+                                <td>{{ match.matches_player.deaths }}</td>
+                                <td>{{ match.matches_player.assists }}</td>
+                                <td>{{ match.matches_player.player_hero.total_hero_damage }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                </a>
         </div>
         {% empty %}
             <p>No match history available.</p>

@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load custom_filters %}
+
+{% block page_header %}
+    <h4>Match History</h4>
+{% endblock %}
+
+{% block content %}
+<section class="match-history">
+    <div class="match-cards-container">
+        <div class="match-card">
+                <div class="match-details">
+                    <h3>Match Details</h3>
+                        <div class="players-list">
+                            {% for player in players %}
+                                <div class="player-card {% if player.is_win %}winner{% else %}loser{% endif %}"> 
+                                    <div class="player-info">
+                                        <h4>{{ player.nick_name }}</h4>
+                                        <img src="https://www.marvelrivalsapi.com/rivals{{ player.cur_hero_icon }}" alt="Player Hero Icon" class="player-icon">
+                                        <ul class="performance-list">
+                                            <li><strong>Kills:</strong> {{ player.kills }}</li>
+                                            <li><strong>Deaths:</strong> {{ player.deaths }}</li>
+                                            <li><strong>Assists:</strong> {{ player.assists }}</li>
+                                            <li><strong>Damage Done:</strong> {{ player.total_hero_damage|floatformat:0}}</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
