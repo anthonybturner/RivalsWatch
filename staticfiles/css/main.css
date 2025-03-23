@@ -75,10 +75,19 @@ h3 {
     letter-spacing: 1px;
     border-bottom: 1px solid #fff;
 }
+h3.winner {
+    background: #000 !important;
+    border-bottom: 4px solid #00890b;
+    border-top: 4px solid #00890b;
+}
+h3.loser {    
+    background: #000000 !important;
+    border-bottom: 4px solid #f30000;
+    border-top: 4px solid #f30000;
+}
 .intro-content p{
     color: #ffffff;
 }
-
 p {
     font-size: 1rem;
     color: #ffffff;
@@ -288,37 +297,66 @@ img.hero {
     transform: translateY(-2px);
 }
 .players-list {
-    color: #000000;
-    display: ruby;
-    margin-bottom: 12px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* 6 columns */
+    grid-template-rows: repeat(2, auto); /* 2 rows */
+    gap: 10px; /* Space between grid items */
+    justify-items: center; /* Centers content in each grid cell */
+    align-items: center;
 
 }
-
+.player-info {
+    background: #000;
+}
+.player-info img {
+    width: 100%;
+    height: auto;
+}
 .player-card {
-    background: #ffffff;
-    color: #000000;
-    border-radius: 4px;
-    /* margin-right: 8px; */
-    gap: 12px;
-    margin-bottom: 12px;
-    margin-right: 4px;
-    font-size: larger;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    border-radius: 6px;
+    width: 100%; /* Ensures consistent sizing */
 }
 
+.player-card.winner {
+    border-bottom: 4px solid #00890b;
+    background: #000;
+    border-top: 4px solid #00890b;
+}
+
+.player-card.loser {
+    border-bottom: 4px solid #890000;
+    background: #000;
+    border-top: 4px solid #890000;
+}
+tbody.winner{
+    background: #00890094;
+}
+tbody.loser{
+    background: #89000094;
+}
 .match-card{
-    border-radius: 5px;
+    border-radius: 4px 4px 10px 10px;
     background: #ffffff;
-    padding: 2px 0;
+    padding: 4px 0;
     margin-bottom: 8px;
 }
+.match-card a {
+    text-decoration: none;
+}
 .match-card h3{
-    background: #000;
     color: #fff;
+    margin: 4px 8px;
+    padding: 2px 8px;
+    border-radius: 6px;
+    background: #000;
+    text-align: center;
 }
 .match-stats table {
     width: 100%;
     border-collapse: collapse;
-    margin: 20px 0;
+    border-radius: 12px;
 }
 
 .match-stats th, .match-stats td {
@@ -331,14 +369,14 @@ img.hero {
     color: #000;
 }
 .match-stats th {
-    color: #000;
-    background-color: #f4f4f4;
+    color: #fff;
+    background-color: #000;
     font-weight: bold;
+    text-align: center;
 }
 
 .match-stats td {
     text-align: center;
-    background: #fff;
     color: #000;
 }
 .match-stats img{
@@ -350,6 +388,11 @@ img.hero {
     margin: 0;
     padding: 0;
     list-style-type: none;
+}
+ul.performance-list {
+    border-radius: 0px 0px 10px 10px;
+    background: #000;
+    margin: 0;
 }
 /* Responsive Design */
 @media (max-width: 1024px) {
