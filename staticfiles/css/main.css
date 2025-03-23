@@ -101,8 +101,7 @@ p {
 
 /* Section Layout */
 section {
-    padding: 50px 20px;
-    margin: 20px 0;
+
 }
 section.dev-diaries, section.latest-news, section.latest-strategies, section.latest-tutorials, section.player-stats, section.player-matches {
     border-radius: 5px;
