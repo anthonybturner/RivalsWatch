@@ -76,10 +76,14 @@ h3 {
     border-bottom: 1px solid #fff;
 }
 h3.winner {
-    background: #00890b94;
+    background: #000 !important;
+    border-bottom: 4px solid #00890b;
+    border-top: 4px solid #00890b;
 }
-h3.loser {
-    background: #89000094;
+h3.loser {    
+    background: #000000 !important;
+    border-bottom: 4px solid #f30000;
+    border-top: 4px solid #f30000;
 }
 .intro-content p{
     color: #ffffff;
@@ -301,6 +305,9 @@ img.hero {
     align-items: center;
 
 }
+.player-info {
+    background: #000;
+}
 .player-info img {
     width: 100%;
     height: auto;
@@ -308,16 +315,20 @@ img.hero {
 .player-card {
     border: 1px solid #ccc;
     background-color: #f9f9f9;
-    border-radius: 5px;
+    border-radius: 6px;
     width: 100%; /* Ensures consistent sizing */
 }
 
 .player-card.winner {
-    background: #00890094;
+    border-bottom: 4px solid #00890b;
+    background: #000;
+    border-top: 4px solid #00890b;
 }
 
 .player-card.loser {
-    background:#89000094;
+    border-bottom: 4px solid #890000;
+    background: #000;
+    border-top: 4px solid #890000;
 }
 tbody.winner{
     background: #00890094;
@@ -339,6 +350,8 @@ tbody.loser{
     margin: 4px 8px;
     padding: 2px 8px;
     border-radius: 6px;
+    background: #000;
+    text-align: center;
 }
 .match-stats table {
     width: 100%;
@@ -375,6 +388,11 @@ tbody.loser{
     margin: 0;
     padding: 0;
     list-style-type: none;
+}
+ul.performance-list {
+    border-radius: 0px 0px 10px 10px;
+    background: #000;
+    margin: 0;
 }
 /* Responsive Design */
 @media (max-width: 1024px) {
